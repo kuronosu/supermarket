@@ -8,13 +8,27 @@ from billing.models import DiscountCode, Invoice, Item
 @admin.register(DiscountCode)
 class AdminDiscountCode(admin.ModelAdmin):
     fields = ('code',)
+    list_display = ['id', 'code', 'used']
+    list_display_links = ['id']
+    list_editable = []
+    search_fields = ['id', 'code']
+    ordering = ["id"]
 
 
 @admin.register(Item)
 class AdminItem(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'invoice', 'product', 'quantity']
+    list_display_links = ['id']
+    list_editable = []
+    ordering = ["id"]
 
 
 @admin.register(Invoice)
 class AdminInvoice(admin.ModelAdmin):
     fields = ('client_name', 'client_email')
+    list_display = ['id', 'client_name',
+                    'client_email', 'generated_datetime', 'amount']
+    list_display_links = ['id']
+    list_editable = []
+    ordering = ["id"]
+    list_filter = ['client_email', 'generated', ]
