@@ -27,8 +27,8 @@ class AdminItem(admin.ModelAdmin):
 class AdminInvoice(admin.ModelAdmin):
     fields = ('client_name', 'client_email')
     list_display = ['id', 'client_name',
-                    'client_email', 'generated_datetime', 'amount']
+                    'client_email', 'discount_code', 'created_at']
     list_display_links = ['id']
     list_editable = []
     ordering = ["id"]
-    list_filter = ['client_email', 'generated', ]
+    list_filter = ['client_email', ]

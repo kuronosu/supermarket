@@ -19,18 +19,15 @@ class DiscountCode(models.Model):
 class Invoice(models.Model):
     client_name = models.CharField(_('Client name'), max_length=255)
     client_email = models.EmailField(_('Client email'), max_length=255)
-    generated = models.BooleanField(default=False)
-    generated_datetime = models.DateTimeField(_("Generated"), auto_now=False,
-                                              auto_now_add=False, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     discount_code = models.OneToOneField(
         DiscountCode, on_delete=models.CASCADE, blank=True, null=True)
-    amount = models.DecimalField(
-        max_digits=11, decimal_places=2, blank=True, null=True)
 
 
 class Item(models.Model):
     invoice = models.ForeignKey(Invoice, related_name='items',
                                 on_delete=models.CASCADE)
-    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    sale_price = models.FloatField(_('Sale price'))
     quantity = models.IntegerField(_('Quantity'), default=1,
                                    validators=[MinValueValidator(1)])

@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="row">
+  <div class="col-4">
+    <form method="POST" action="{% url 'create_invoice' %}" id="create_invoice_form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_client_name" class="form-label">Client name</label>
+        <input
+          type="text"
+          name="client_name"
+          class="form-control"
+          id="id_client_name"
+          placeholder="Clien name"
+          value=""
+          required=""
+        />
+      </div>
+      <div class="form-group">
+        <label for="id_client_email" class="form-label">Client email</label>
+        <input
+          type="email"
+          name="client_email"
+          class="form-control"
+          id="id_client_email"
+          placeholder="Clien email"
+          value=""
+          required=""
+        />
+      </div>
+      <div class="form-group">
+        <label for="id_discount_code" class="form-label">Redeem Code</label>
+        <input
+          type="text"
+          name="discount_code"
+          class="form-control"
+          id="id_discount_code"
+          placeholder="Discount code"
+          value=""
+        />
+      </div>
+      <input class="btn btn-primary m-1" type="submit" value="Generate" />
+    </form>
+  </div>
+  <div class="col">
+    <span class="form-label">Products added</span>
+    <ul id="products_list"></ul>
+  </div>
+  <div class="col form-group">
+    <label for="search_product" class="form-label">Search products</label>
+    <input
+      type="text"
+      placeholder="Search products"
+      id="search_product"
+      class="form-control"
+    />
+    <div id="search_results"></div>
+  </div>
+</div>
+
+{% endblock content %} {% block scripts %}
+<script src="{% static 'js/create_invoice.js' %}"></script>
+{% endblock scripts %}
