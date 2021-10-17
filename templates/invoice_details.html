@@ -99,8 +99,8 @@
                   <td>{{ forloop.counter }}</td>
                   <td>{{item.name}}</td>
                   <td>{{item.quantity}}</td>
-                  <td class="text-95">${{item.price}}</td>
-                  <td class="text-secondary-d2">${{item.ammount}}</td>
+                  <td class="text-95">${{item.price|floatformat:2}}</td>
+                  <td class="text-secondary-d2">${{item.ammount|floatformat:2}}</td>
                 </tr>
                 {% endfor %}
               </tbody>
@@ -122,21 +122,21 @@
               <div class="row my-2">
                 <div class="col-7 text-right">SubTotal</div>
                 <div class="col-5">
-                  <span class="text-120 text-secondary-d1">${{sub_total}}</span>
+                  <span class="text-120 text-secondary-d1">${{sub_total|floatformat:2}}</span>
                 </div>
               </div>
 
               <div class="row my-2">
                 <div class="col-7 text-right">Discount</div>
                 <div class="col-5">
-                  <span class="text-110 text-secondary-d1">${{discount}}</span>
+                  <span class="text-110 text-secondary-d1">${{discount|floatformat:2}}</span>
                 </div>
               </div>
 
               <div class="row my-2 align-items-center bgc-primary-l3 p-2">
                 <div class="col-7 text-right">Total Amount</div>
                 <div class="col-5">
-                  <span class="text-150 opacity-2">${{total}}</span>
+                  <span class="text-150 opacity-2">${{total|floatformat:2}}</span>
                 </div>
               </div>
             </div>

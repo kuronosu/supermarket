@@ -1,6 +1,8 @@
 import json
 from django.db import transaction
+from django.utils import timezone
 from django.http.response import JsonResponse
+from django.views.generic.list import ListView
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
@@ -35,6 +37,7 @@ def invoice_details(request, pk):
                    "sub_total": sub_total,
                    "discount": discount})
 
+
 @login_required
 @require_http_methods(['POST', 'GET'])
 def create_invoice(request):
@@ -66,3 +69,14 @@ def create_invoice(request):
         except Exception as e:
             return JsonResponse({"errors": ["Unexpected error"]}, status=400)
     return JsonResponse({"invoice": invoice.pk}, status=201)
+
+
+class InvoiceListView(ListView):
+    model = Invoice
+    paginate_by = 100
+    template_name = "invoice_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context

@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Invoices</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Client name</th>
+      <th scope="col">Client email</th>
+      <th scope="col">Datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for invoice in object_list %}
+    <tr>
+      <td scope="row">
+        <a
+          class="text-dark text-decoration-none"
+          href="{% url 'invoice_details' invoice.pk %}"
+        >
+          {{invoice.id}}
+        </a>
+      </td>
+      <td>
+        <a
+          class="text-dark text-decoration-none"
+          href="{% url 'invoice_details' invoice.pk %}"
+        >
+          {{invoice.client_name}}</a
+        >
+      </td>
+      <td>
+        <a
+          class="text-dark text-decoration-none"
+          href="{% url 'invoice_details' invoice.pk %}"
+        >
+          {{invoice.client_email}}</a
+        >
+      </td>
+      <td>
+        <a
+          class="text-dark text-decoration-none"
+          href="{% url 'invoice_details' invoice.pk %}"
+        >
+          {{ invoice.created_at }}</a
+        >
+      </td>
+    </tr>
+    {% empty %}
+    <tr>No invoices yet.</tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
