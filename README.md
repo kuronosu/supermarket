@@ -53,3 +53,11 @@ In each new terminal you must create the environment variable, you can do that a
 
 - Windows:  `$env:SECRET_KEY="your-secret-key" & python.exe manage.py runserver`
 - Linux:  `SECRET_KEY="your-secret-key"; python.exe manage.py runserver`
+
+## Flowchar
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/28797741/137649024-953b0d41-6ab2-4000-b85f-ce38795dae9b.png)
+
+
+## UML
+
+![Untitled Diagram drawio](https://github.com/kuronosu/supermarket/blob/master/models.png)
