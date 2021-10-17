@@ -32,7 +32,7 @@ Create virtual environment: `python -m venv venv`
 
 Actiave virtual environment:
 - Windows: `.\venv\Scripts\activate`
-- Linux: `./venv/bin/activate`
+- Linux: `source ./venv/bin/activate`
 
 Install dependencies: `pip install -r .\requirements.txt`
 
