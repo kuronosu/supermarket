@@ -97,7 +97,7 @@
                 {% for item in item_list %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{item.name}}</td>
+                  <td>{{item.name|title}}</td>
                   <td>{{item.quantity}}</td>
                   <td class="text-95">${{item.price|floatformat:2}}</td>
                   <td class="text-secondary-d2">${{item.ammount|floatformat:2}}</td>
