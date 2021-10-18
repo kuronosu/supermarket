@@ -1,8 +1,10 @@
-# Supermarket
+# Supermarket 
+
+https://master-invoice.herokuapp.com/
 
 ## Use
 
-To create an invoice click on "New invoice"
+To create an invoice click on "New invoice", this requires login, you can use "test" as username and password
 
 ![image](https://user-images.githubusercontent.com/28797741/137647785-357215f3-3890-455f-bc12-6b95273bc80c.png)
 
