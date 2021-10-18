@@ -12,8 +12,12 @@ class DiscountCode(models.Model):
     used = models.BooleanField(_('Used'), default=False)
 
     @classmethod
-    def create_codes(cls):
+    def generate_code(cls):
         return ''.join(random.sample(string.ascii_uppercase, 10))
+
+    @classmethod
+    def generate_codes(cls, n):
+        return [cls(code=cls.generate_code()) for _ in range(n)]
 
 
 class Invoice(models.Model):

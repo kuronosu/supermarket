@@ -115,3 +115,6 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 /staticfiles
+
+insert_products.py
+productos.csv
