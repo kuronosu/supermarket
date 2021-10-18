@@ -11,10 +11,6 @@ nav {
   background-color: #00695c;
 }
 
-.navbar-container{
-  justify-content: start !important;
-}
-
 .supermarket-brand {
   font-size: 40px;
   font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans",
